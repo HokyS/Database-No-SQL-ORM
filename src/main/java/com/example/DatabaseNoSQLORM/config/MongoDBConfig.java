@@ -21,7 +21,7 @@ public class MongoDBConfig extends AbstractMongoClientConfiguration {
 
     @Override
     public MongoClient mongoClient() {
-        ConnectionString connectionString = new ConnectionString("mongodb+srv://Develhope:<password>@cluster0.3ddx5ip.mongodb.net/?retryWrites=true&w=majority");
+        ConnectionString connectionString = new ConnectionString("mongodb+srv://Develhope:develhope@cluster0.3ddx5ip.mongodb.net/Develhope?retryWrites=true&w=majority");
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)
                 .build();
@@ -30,6 +30,11 @@ public class MongoDBConfig extends AbstractMongoClientConfiguration {
 
     @Override
     protected Collection<String> getMappingBasePackages() {
-        return Collections.singleton("co.develhope");
+        return Collections.singleton("com.example");
+    }
+
+    @Override
+    protected boolean autoIndexCreation() {
+        return true;
     }
 }
